@@ -71,6 +71,7 @@ char E[48] = {
 };
 
 // permutation box
+// unsure if this needs to be char or int
 int P[32] = 
 {
 	  16,  7, 20, 21,
