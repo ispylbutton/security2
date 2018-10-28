@@ -174,8 +174,121 @@ int P[32]={
   22, 11, 4, 25
 }
 
+//emily's code
+int IPtext[64];
+int ExpandedText[48];
+int key56bits[56];
+int keys48bits[17][48]; //this is a table of all the keys we make
+int LEFT[17][32], RIGHT[17][32];
 
-void permuteKeySingleRound(int * currentKey, int * nextKey, int roundNumber {
+//functions to convert keys
+int key64to56bit(int position, int text) {
+	int i;
+	for (i = 0; i < 56; i++) {
+		if (PC1[i] == position + 1)
+			break;
+	}
+	key56bits[i] = text;
+}
+
+void key56to48bits(int round, int position, int text) {
+	int i;
+	for (i = 0; i < 56; i++) {
+		if (PC2[i] == position +1)
+			break;
+	}
+	keys48bits[round][i] = text;
+}
+
+void keys64to48bits (unsigned int key[]) {
+	int k, backup[17][2];
+	int CD[17][56];
+	int C[17][28], D[17][28]; //declaring the pieces for the key schedule
+
+	for (int i = 0; i < 64; i++){
+		key64to56bit(i, key[i]);
+	}
+
+	for (int i = 0; i < 56; i++) {
+		if (i < 28) {
+			C[0][i] = key56bits[i];
+		}
+		else {
+			D[0][i-28] = key56bits[i];
+		}
+	}
+
+	for (int x = 1; x < 17 ; x++) {
+		int shift = shiftBy[x-1];
+
+		for (int i = 0; i < shift; i++) {
+			backup[x-1][i] = C[x-1][i];
+		}
+
+		for (int i = 0; i < (28 - shift); i++){
+			C[x][i] = C[x-1][i+shift];
+		}
+		k = 0;
+
+		for (int i = 28 - shit; i < 28; i++) {
+			C[x][i] = backup[x-1][k++];
+		}
+
+		for (int i = 0; i < shift; i++) {
+			backup[x-1][i] = D[x-1][i];
+		}
+		
+		for (int i = 0; i < (28 - shift); i++) {
+			D[x][i] = D[x-1][i+shift];
+		}
+		k = 0;
+
+		for (int i = 28 - shift; i < 28; i++){
+			D[x][i] = backup[x-1][k++];
+		}
+	}
+
+	for (int j = 0; j < 17; j++) {
+		for (int i = 0; i < 28; i++) {
+			CD[j][i] = C[j][i];
+		}
+		for (int i = 28; i < 56; i++){
+			CD[j][i] = D[j][i-28];
+		}
+	}
+
+	for (int j = 1; j < 17; j++) {
+		for (int i = 0; i < 56; i++){
+			key56to48bits(j, i, CD[j][i]);
+		}
+	}
+}
+
+int XOR(int x, int y) {
+	return (x ^ y);
+}
+
+void expanding (int position, int text) {
+	for (int i = 0; i < 48; i++) {
+		if (E[i] == position + 1) {
+			ExpandedText[i] = text;
+		}
+	}
+}
+
+int initialPerm (int position, int text) {
+	int i; //so we can use at end of function
+	for (i = 0; i < 64; i++) {
+		if (IP[i] == position +1)
+			break;
+	}
+	IPtext[i] = text;
+}
+
+
+
+//unsure that we really need this function like this. I think there is a better way
+void permuteKeySingleRound(int * currentKey, int * nextKey, int roundNumber) {
 
   int leftKey;
   int tempLeftKey;
