@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "DES2.h"
+
 
 /********************************************/
 /* Tables for initial and final permutation */
