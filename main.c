@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "DES2.h" //not sure if this is needed or not since its in DES2.c and we are linking that
 
 
 int main (int argc, char* argv[]) {
