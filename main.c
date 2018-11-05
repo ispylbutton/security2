@@ -6,14 +6,19 @@
 #define ACTION_ENCRYPT "-e"
 #define ACTION_DECRYPT "-d"
 
-uint64_t rand_uint64_slow(void) {
-    uint64_t r = 0;
+char* generateKey() {
+    char r[64]="";
+
     int i;
     for (i=0; i<64; i++) {
-        r =r*2+rand()%2;
+        r[i]=(char)(((uint64_t)rand()+rand())%2);
     }
-    return r;
+
+    char *ret=r;
+    return ret;
 }
+
+
 
 
 
