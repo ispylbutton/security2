@@ -7,12 +7,11 @@
 #define ACTION_DECRYPT "-d"
 
 uint64_t rand_uint64_slow(void) {
-  uint64_t r = 0;
-  int i;
-  for (i=0; i<64; i++) {
-    r =r*2+rand()%2;
-  }
-  printf("in the process: %I64u", r);
+    uint64_t r = 0;
+    int i;
+    for (i=0; i<64; i++) {
+        r =r*2+rand()%2;
+    }
     return r;
 }
 
