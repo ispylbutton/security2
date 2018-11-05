@@ -6,22 +6,18 @@
 #define ACTION_ENCRYPT "-e"
 #define ACTION_DECRYPT "-d"
 
+
 char* generateKey() {
     char r[64]="";
 
     int i;
     for (i=0; i<64; i++) {
-        r[i]=(char)(((uint64_t)rand()+rand())%2);
+        r[i]=(rand()+rand())%2;
     }
-
-    char *ret=r;
-    printf("%s", ret); //why wont this print anything
+    char *ret = r;
+    printf("%s", ret);
     return ret;
 }
-
-
-
-
 
 
 int main (int argc, char* argv[]) {
