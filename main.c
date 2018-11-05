@@ -10,11 +10,12 @@ uint64_t rand_uint64_slow(void) {
   uint64_t r = 0;
   int i;
   for (i=0; i<64; i++) {
-    r =(r*2+rand())%2;
-    printf("%I64u\n",r);
+    r =r*2+rand()%2;
   }
-  return r;
+  printf("in the process: %I64u", r);
+    return r;
 }
+
 
 
 
