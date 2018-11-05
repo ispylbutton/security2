@@ -38,3 +38,5 @@ Please provide the .txt filename for the input text to encrypt or decrypt within
 #### KEY
 
 Please provide a bitwise key for encryption or decryption.
+
+For encryption, if a key is not provided, one will be created randomly.
