@@ -15,7 +15,7 @@ char* generateKey() {
     }
 
     char *ret=r;
-    printf("%s", ret);
+    printf("%s", ret); //why wont this print anything
     return ret;
 }
 
