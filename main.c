@@ -15,6 +15,7 @@ char* generateKey() {
     }
 
     char *ret=r;
+    printf("%s", ret);
     return ret;
 }
 
