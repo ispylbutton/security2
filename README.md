@@ -11,3 +11,14 @@ make des
 
 ## Usage
 
+```bash
+./DES [MODE] [INPUT_FILENAME] [KEY]
+```
+#### MODE
+
+```bash
+-e 
+    encrypt the given input file with the given key
+-d
+    decrypt the given input file with the given key
+```
