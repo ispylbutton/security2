@@ -28,11 +28,18 @@ int main (int argc, char* argv[]) {
 			return 1;
 		}
 
-        if (argv[1] == ACTION_ENCRYPT){
-            encrypt()
+        if (strcmp(argv[1],ACTION_ENCRYPT)==0){
+            encrypt(input_file, argv[3]); //sending input file and the key to encrypt function
+            printf("Encrypting.\n");
+        }
+
+        else if (strcmp(argv[1], ACTION_DECRYPT)==0){
+            decrypt(input_file, argv[3]); //sending input file and key to decrypt
+            printf("Decrypting.\n");
         }
 
         fclose(input_file);
+        fclose(output_file);
     }
     return 0;
 }
