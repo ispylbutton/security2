@@ -22,3 +22,11 @@ make des
 -d
     decrypt the given input file with the given key
 ```
+
+#### INPUT_FILENAME
+
+Please provide the .txt filename for the input text to encrypt or decrypt within "".
+
+#### KEY
+
+Please provide a bitwise key for encryption or decryption.
