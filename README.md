@@ -4,9 +4,14 @@ DES Implementation in C for encrypting and decrypting input text with a given ke
 
 Conditions:
 CBC mode was not successfully implemented. DES is in EBC mode, so it is more vulnerable to a cut-and-paste attack.
+
 The code that would theoretically implement CBC is indicated in DES.c for review.
+
 The command line program accepts the IV parameter, but since CBC was not implemented, it is not actually used.
+
 Both the 64bit key and the 64bit IV are accepted as binary instead of hex.
+
+singleRoundDES2 is a dummy function so that the potential CBC mode would not interfere with the implemented ECB mode.
 
 ## Compiling
 This implementation works best when run on a Unix platform. You may compile and run it on Windows if you have GDB and C correctly installed.
