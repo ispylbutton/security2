@@ -6,7 +6,9 @@
 #include <time.h>
 #include "DES.h"
 
-static void genkey(uint64_t * key)
+
+//works, but was not fully implemented
+static void generateRandomKey(uint64_t * key)
 {
     uint64_t initBit;
     initBit=0x8000000000000000;
@@ -264,6 +266,5 @@ int main(int argc, char * argv[])
   fclose(inputFile);
   fclose(outputFile);
   
-  return 0;
-  
+  return 0; 
 }
