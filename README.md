@@ -1,26 +1,12 @@
-# security2
-
-To build: 
-
-make clean
-make all
-
-to run encrypt:
-
-./DES -e -i <IV> -k <key> <plain text file>
-    defaults output to outputfile.txt
-  
-to run decrypt:
-
- ./DES -d -o <new output file> -i <IV> -k <key> <encrypted file>
-
-
-
-
-
 # DES Implementation
 
 DES Implementation in C for encrypting and decrypting input text with a given key.
+
+Conditions:
+CBC mode was not successfully implemented. DES is in EBC mode, so it is more vulnerable to a cut-and-paste attack.
+The code that would theoretically implement CBC is indicated in DES.c for review.
+The command line program accepts the IV parameter, but since CBC was not implemented, it is not actually used.
+Both the 64bit key and the 64bit IV are accepted as binary instead of hex.
 
 ## Compiling
 This implementation works best when run on a Unix platform. You may compile and run it on Windows if you have GDB and C correctly installed.
@@ -30,7 +16,7 @@ Run the makefile to clean any previously executed instances
 make clean
 ```
 
-Run the makefile to compile the code with GDB, .
+Run the makefile to compile the code.
 ```bash
 make all
 ```
