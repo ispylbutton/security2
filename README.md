@@ -2,7 +2,7 @@
 
 DES Implementation in C for encrypting and decrypting input text with a given key.
 
-Conditions:
+##### Conditions:
 CBC mode was not successfully implemented. DES is in EBC mode, so it is more vulnerable to a cut-and-paste attack.
 
 The code that would theoretically implement CBC is indicated in DES.c for review.
