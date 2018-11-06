@@ -3,7 +3,7 @@
 DES Implementation in C for encrypting and decrypting input text with a given key.
 
 Conditions:
-CBC mode was not successfully implemented. DES is in EBC mode, so it is more vulnerable to a cut-and-paste attack.
+CBC mode was not successfully implemented. DES is in ECB mode, so it is more vulnerable to a cut-and-paste attack.
 The code that would theoretically implement CBC is indicated in DES.c for review.
 The command line program accepts the IV parameter, but since CBC was not implemented, it is not actually used.
 Both the 64bit key and the 64bit IV are accepted as binary instead of hex.
